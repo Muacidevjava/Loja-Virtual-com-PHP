@@ -31,4 +31,17 @@ class Controller
     }
        return ucfirst(DEFAUT_CONTROLLER).'Controller';
    }
+
+    public function controller ()
+    {
+      $controller = $this->getController();
+      foreach(self::FOLDERS_CONTROLLER as $folderController) 
+      {
+         if(class_exists(self::NAMESPACE_CONTROLLER.$folderController.'\\'.$controller))
+         {
+            return self::NAMESPACE_CONTROLLER.$folderController.'\\'.$controller;
+         }
+      }
+      return self::ERROR_CONTROLLER;
+    }
 }
