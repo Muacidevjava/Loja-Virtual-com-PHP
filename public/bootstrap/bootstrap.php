@@ -1,4 +1,7 @@
 <?php
 $controller = new \App\Controllers\Controller;
+$object = $controller -> controller();
 
-dump($controller -> controller());
+$method = new \App\Controllers\Method;
+
+dump($method->method($object));
